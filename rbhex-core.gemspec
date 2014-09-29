@@ -22,11 +22,11 @@ Gem::Specification.new do |spec|
     spec.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0')
-      spec.add_runtime_dependency(%q<ffi-ncurses>, [">= 0.4.0"])
+      spec.add_runtime_dependency 'ffi-ncurses', '~> 0.4', '>= 0.4.0'
     else
-      spec.add_dependency(%q<ffi-ncurses>, [">= 0.4.0"])
+      spec.add_dependency 'ffi-ncurses', '~> 0.4', '>= 0.4.0'
     end
   else
-    spec.add_dependency(%q<ffi-ncurses>, [">= 0.4.0"])
+    spec.add_dependency 'ffi-ncurses', '~> 0.4', '>= 0.4.0'
   end
 end
