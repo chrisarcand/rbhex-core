@@ -153,8 +153,8 @@ App.new do
   #end
   #@form.bind_key(?\C-x){ pm.call }
 
-  alist = File.open("data/brew.txt",'r').readlines
-  list2 = File.open("data/gemlist.txt",'r').readlines
+  alist = File.open(File.expand_path("../data/brew.txt", __FILE__), 'r').readlines
+  list2 = File.open(File.expand_path("../data/gemlist.txt", __FILE__), 'r').readlines
   lb = nil
 
   flow :margin_top => 1, :height => FFI::NCurses.LINES-2 do
