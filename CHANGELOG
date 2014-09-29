@@ -1,5 +1,8 @@
 **2014-09-29**
-Redistributed as rbhex v1.0.0
+## rbhex-core v1.0.0
+  * Redistributed as rbhex
+  * Fixed pathing in examples so you can run them standalone
+  * Some non-code restructuring of gemspec, etc
 
 **2013-04-01**
 ## 0.0.14 rbcurse-core
