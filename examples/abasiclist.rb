@@ -137,7 +137,7 @@ App.new do
   colors = Ncurses.COLORS
   back = :blue
   back = 234 if colors >= 256
-  header = app_header "rbhex", :text_center => "Basic List Demo", :text_right =>"New Improved!", :color => :white, :bgcolor => back #, :attr => :bold
+  header = app_header "rbhex #{Rbhex::Core::VERSION}", :text_center => "Basic List Demo", :text_right =>"New Improved!", :color => :white, :bgcolor => back #, :attr => :bold
   message "Press F10 to escape from here"
   #install_help_text my_help_text
   @form.help_manager.help_text = my_help_text

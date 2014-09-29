@@ -34,12 +34,12 @@ def resize
   #$log.debug "XXX:  RESIZE h w #{tab.height} , #{tab.width} "
 end
   @default_prefix = " "
-  header = app_header "rbhex #{rbhex::VERSION}", :text_center => "Task List", :text_right =>"New Improved!"
+  header = app_header "rbhex #{Rbhex::Core::VERSION}", :text_center => "Task List", :text_right =>"New Improved!"
 
   message "Press F10 or qq to quit "
 
-  file = "data/todo.txt"
-  alist = File.open(file,'r').readlines if File.exists? file
+  file = File.expand_path("../data/todo.txt", __FILE__)
+  alist = File.open(file,'r').readlines
   #flow :margin_top => 1, :item_width => 50 , :height => FFI::NCurses.LINES-2 do
   #stack :margin_top => 1, :width => :expand, :height => FFI::NCurses.LINES-4 do
 

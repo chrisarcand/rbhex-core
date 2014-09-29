@@ -62,7 +62,7 @@ if $0 == __FILE__
       colors = Ncurses.COLORS
       $log.debug "START #{colors} colors testfield.rb --------- #{@window} "
       @form = Form.new @window
-      title = (" "*30) + "Demo of Field (F10 quits, F1 help) " + rbhex::VERSION
+      title = (" "*30) + "Demo of Field (F10 quits, F1 help) " + Rbhex::Core::VERSION
       Label.new @form, {:text => title, :row => 1, :col => 0, :color => :green, :bgcolor => :black}
       r = 3; fc = 12;
       mnemonics = %w[ n l r p]

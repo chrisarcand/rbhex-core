@@ -2,7 +2,7 @@ require 'rbhex/core/util/app'
 
 App.new do
   var = Variable.new
-  header = app_header "rbhex #{rbhex::VERSION}", :text_center => "Tree Demo", :text_right =>"New Improved!", :color => :black, :bgcolor => :white, :attr => :bold
+  header = app_header "rbhex #{Rbhex::Core::VERSION}", :text_center => "Tree Demo", :text_right =>"New Improved!", :color => :black, :bgcolor => :white, :attr => :bold
   message "Press Enter to expand/collapse"
 
       @form.bind_key(FFI::NCurses::KEY_F3) {

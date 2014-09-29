@@ -28,7 +28,7 @@ if $0 == __FILE__
 
     catch(:close) do
       @form = Form.new @window
-      title = (" "*30) + "Demo of Progress Bar (q quits, s - slow down) " + rbhex::VERSION
+      title = (" "*30) + "Demo of Progress Bar (q quits, s - slow down) " + Rbhex::Core::VERSION
       Label.new @form, {:text => title, :row => 1, :col => 0, :color => :green, :bgcolor => :black}
       Label.new @form, {:text => "Press q to quit, s/f make slow or fast", :row => 10, :col => 10}
       Label.new @form, {:text => "Old style and modern style progress bars", :row => 12, :col => 10}

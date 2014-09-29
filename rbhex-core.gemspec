@@ -5,7 +5,7 @@ require 'rbhex/core/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "rbhex-core"
-  spec.version       = Rbhex::CORE_VERSION
+  spec.version       = Rbhex::Core::VERSION
   spec.authors       = ["Chris Arcand", "Rahul Kumar"]
   spec.email         = ["chris@chrisarcand.com"]
   spec.description   = "Ruby curses/ncurses widgets for easy application development on text terminals"

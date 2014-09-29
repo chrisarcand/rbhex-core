@@ -24,7 +24,7 @@ require 'rbhex/core/widgets/scrollbar'
     eos
   end
 App.new do
-  header = app_header "rbhex #{rbhex::VERSION}", :text_center => "Tabular Demo", :text_right =>"New Improved!", :color => :black, :bgcolor => :white, :attr => :bold
+  header = app_header "rbhex #{Rbhex::Core::VERSION}", :text_center => "Tabular Demo", :text_right =>"New Improved!", :color => :black, :bgcolor => :white, :attr => :bold
   message "F10 quit, F1 Help, ? Bindings"
   #install_help_text my_help_text
   @form.help_manager.help_text = my_help_text
@@ -41,7 +41,7 @@ App.new do
       #list_box :list => t.to_s.split("\n")
       listbox :list => t.render
     end # stack
-    file = "data/tasks.csv"
+    file = File.expand_path("../data/tasks.csv", __FILE__)
     lines = File.open(file,'r').readlines
     heads = %w[ id sta type prio title ]
     t = Tabular.new do |t|

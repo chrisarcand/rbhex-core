@@ -56,7 +56,7 @@ if $0 == __FILE__
       colors = Ncurses.COLORS
       $log.debug "START #{colors} colors test2.rb --------- #{@window} "
       @form = Form.new @window
-      title = (" "*30) + "Original Demo of basic Ruby Curses Widgets " + rbhex::VERSION
+      title = (" "*30) + "Original Demo of basic Ruby Curses Widgets " + Rbhex::Core::VERSION
       Label.new @form, {'text' => title, :row => 0, :col => 0, :color => 'green', :bgcolor => 'black'}
       r = 1; fc = 12;
         r += 1

@@ -1,5 +1,6 @@
 require 'rbhex/core/util/app'
 require 'rbhex/core/util/bottomline'
+require 'rbhex/core/version'
 require 'fileutils'
 
 # this will go into top namespace so will conflict with other apps!
@@ -71,7 +72,7 @@ App.new do
   end
   ht = 24
   borderattrib = :reverse
-  @header = app_header "rbhex #{rbhex::VERSION}", :text_center => "Bottomline Test",
+  @header = app_header "rbhex #{Rbhex::Core::VERSION}", :text_center => "Bottomline Test",
     :text_right =>"Click :", :color => :white, :bgcolor => 235
   message "Press F10 to exit, F1 Help, : for Menu  "
 

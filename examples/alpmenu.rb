@@ -7,7 +7,7 @@ require 'rbhex/core/util/app'
   App.new do
     #title "Demo of Menu - rbhex"
     #subtitle "Hit F1 to quit, F2 for menubar toggle"
-    header = app_header "rbhex", :text_center => "Alpine Menu Demo", :text_right =>""
+    header = app_header "rbhex #{Rbhex::Core::VERSION}", :text_center => "Alpine Menu Demo", :text_right =>""
 
     stack :margin_top => 10, :margin_left => 15 do
       #w = "Messages".length + 1

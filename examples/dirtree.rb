@@ -22,7 +22,7 @@ App.new do
       "At present the PWD may not be updated, so you'll just have to be in the correct",
       "dir to actually view the file"]
   end
-  header = app_header "rbhex #{rbhex::VERSION}", :text_center => "Yet Another Dir Lister", :text_right =>"Directory Lister" , :color => :white, :bgcolor => :black #, :attr =>  Ncurses::A_BLINK
+  header = app_header "rbhex #{Rbhex::Core::VERSION}", :text_center => "Yet Another Dir Lister", :text_right =>"Directory Lister" , :color => :white, :bgcolor => :black #, :attr =>  Ncurses::A_BLINK
   message "Press Enter to expand/collapse, <space> to view in lister. <F1> Help"
   @form.help_manager.help_text = help_text()
 

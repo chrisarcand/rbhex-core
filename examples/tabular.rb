@@ -118,7 +118,7 @@ def resize
   tab.height = (tab.height_pc * rows).floor
   tab.width = (tab.width_pc * cols).floor
 end
-  header = app_header "rbhex #{rbhex::VERSION}", :text_center => "Tabular Demo", :text_right =>"Fat-free !",
+  header = app_header "rbhex #{Rbhex::Core::VERSION}", :text_center => "Tabular Demo", :text_right =>"Fat-free !",
       :color => :black, :bgcolor => :green #, :attr => :bold
   message "Press F10 to exit, F1 for help, : for menu"
   @form.help_manager.help_text = help_text()
@@ -126,7 +126,7 @@ end
   $orig_rows = Ncurses.LINES
 
   h = %w[ Id Title Priority Status]
-  file = "data/table.txt"
+  file = File.expand_path("../data/table.txt", __FILE__)
   lines = File.open(file,'r').readlines
   arr = []
   lines.each { |l| arr << l.split("|") }

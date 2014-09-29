@@ -1,3 +1,5 @@
 module Rbhex
-  CORE_VERSION = '1.0.0'
+  module Core
+    VERSION = '1.0.0'
+  end
 end
