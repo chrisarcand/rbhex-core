@@ -1,5 +1,7 @@
 # rbhex-core
 
+[![Gem Version](https://badge.fury.io/rb/rbhex-core.svg)](http://badge.fury.io/rb/rbhex-core)
+
 Contains core widgets and infrastructure of rbhex ncurses toolkit. rbhex helps to easily build
 ncurses applications for text terminals.
 
