@@ -23,7 +23,7 @@
 #
 # ----------------------------------------------------------------------------- #
 #
-require 'rbhex'
+require 'rbhex/core'
 require 'rbhex/core/include/bordertitle'
 
 include RubyCurses

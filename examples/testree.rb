@@ -1,4 +1,4 @@
-require 'rbhex'
+require 'rbhex/core'
 require 'rbhex/core/widgets/rtree'
 
 if $0 == __FILE__

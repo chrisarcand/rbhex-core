@@ -14,7 +14,7 @@
      NOTE: I have continued this in textpad which is a widget that uses pads to scroll.
            This is very rough, i may work on this more later.
 =end
-require 'rbhex'
+require 'rbhex/core'
 
 include RubyCurses
 module RubyCurses

@@ -26,7 +26,7 @@ a user friendly string to identifiy the action, as well as a disabled option.
 
 =end
 #require 'logger'
-require 'rbhex'
+require 'rbhex/core'
 
 include RubyCurses
 module RubyCurses

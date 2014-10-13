@@ -10,7 +10,7 @@
 # ----------------------------------------------------------------------------- #
 #  testprogress.rb  Copyright (C) 2012-2014 rahul kumar
 require 'logger'
-require 'rbhex'
+require 'rbhex/core'
 require 'rbhex/core/widgets/rprogress'
 if $0 == __FILE__
 

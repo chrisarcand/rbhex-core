@@ -10,7 +10,7 @@
   * file separated on 2009-01-13 22:39
 
 =end
-require 'rbhex'
+require 'rbhex/core'
 
 module RubyCurses
   ##

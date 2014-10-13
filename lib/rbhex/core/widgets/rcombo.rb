@@ -11,7 +11,7 @@
 #  Last update: 2014-03-24 16:42
 # ----------------------------------------------------------------------------- #
 #
-require 'rbhex'
+require 'rbhex/core'
 
 include RubyCurses
 module RubyCurses

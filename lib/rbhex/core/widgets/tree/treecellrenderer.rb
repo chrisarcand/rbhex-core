@@ -1,5 +1,5 @@
 # 2010-09-18 15:35
-require 'rbhex'
+require 'rbhex/core'
 require 'rbhex/core/widgets/rwidget'
 module RubyCurses
 

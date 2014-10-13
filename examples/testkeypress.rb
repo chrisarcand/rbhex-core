@@ -6,7 +6,7 @@
 # from what we are expecting.
 # Exit using 'q'.
 require 'logger'
-require 'rbhex'
+require 'rbhex/core'
 require 'rbhex/core/widgets/rtextview'
 if $0 == __FILE__
   include RubyCurses

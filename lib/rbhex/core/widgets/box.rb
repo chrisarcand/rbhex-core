@@ -6,7 +6,7 @@
 #  Last update: 06.11.11 - 19:53
 # ------------------------------------------------------------ #
 #
-require 'rbhex'
+require 'rbhex/core'
 require 'rbhex/core/include/bordertitle'
 include RubyCurses
 #include RubyCurses::BorderTitle

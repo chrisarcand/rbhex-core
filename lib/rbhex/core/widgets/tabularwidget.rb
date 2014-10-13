@@ -29,7 +29,7 @@ TODO
     Same as Ruby's License (http://www.ruby-lang.org/LICENSE.txt)
 
 =end
-require 'rbhex'
+require 'rbhex/core'
 require 'rbhex/core/include/listscrollable'
 require 'rbhex/core/widgets/tabular'
 require 'rbhex/core/include/listselectable'

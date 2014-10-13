@@ -12,7 +12,7 @@ TODO
 
 =end
 require 'logger'
-require 'rbhex'
+require 'rbhex/core'
 require 'rbhex/core/include/listscrollable'
 require 'rbhex/core/include/bordertitle'
 require 'forwardable'

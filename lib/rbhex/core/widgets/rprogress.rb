@@ -1,6 +1,6 @@
 #require 'ncurses'
 require 'logger'
-require 'rbhex'
+require 'rbhex/core'
 
 #include Ncurses # FFI 2011-09-8
 include RubyCurses

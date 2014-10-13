@@ -1,6 +1,6 @@
 # this is a test program, tests out tabbed panes. type F1 to exit
 #
-require 'rbhex'
+require 'rbhex/core'
 require 'rbhex/core/util/widgetshortcuts'
 
 include RubyCurses
