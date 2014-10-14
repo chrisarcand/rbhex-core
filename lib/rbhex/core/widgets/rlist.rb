@@ -14,7 +14,7 @@ CHANGES
   - 2011-11-18 changed name to list
 
 =end
-require 'rbhex'
+require 'rbhex/core'
 require 'rbhex/core/include/listcellrenderer'
 require 'rbhex/core/include/bordertitle'
 #require 'rbhex/extras/include/listkeys'

@@ -18,7 +18,7 @@
      add remove tabs at any time - started, untested
      events for tab add/remove/etc
 =end
-require 'rbhex'
+require 'rbhex/core'
 ##
 module RubyCurses
   class TabbedPane < Widget

@@ -21,7 +21,7 @@
      - Should have its own stack and flow
 =end
 
-require 'rbhex'
+require 'rbhex/core'
 
 include RubyCurses
 module RubyCurses

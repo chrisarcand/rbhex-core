@@ -1,7 +1,7 @@
 # this is a test program, tests out tabbed panes. type F1 to exit
 #
 require 'logger'
-require 'rbhex'
+require 'rbhex/core'
 #require 'rbhex/core/widgets/newtabbedpane'
 require 'rbhex/core/widgets/rtabbedpane'
 require 'rbhex/core/widgets/rcontainer' # tempo FIXME remove this since we arent using afterfixing rtabbedp

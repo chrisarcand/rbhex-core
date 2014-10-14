@@ -1,5 +1,5 @@
 require 'logger'
-require 'rbhex'
+require 'rbhex/core'
 require 'rbhex/core/include/appmethods.rb'
 def help_text
       <<-eos

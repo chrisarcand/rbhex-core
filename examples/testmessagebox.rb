@@ -5,7 +5,7 @@
 #  since the interface has been changed and simplified
 #
 require 'logger'
-require 'rbhex'
+require 'rbhex/core'
 require 'rbhex/core/widgets/rmessagebox'
 #require 'rbhex/deprecated/widgets/rmessagebox'
 

@@ -1,4 +1,4 @@
-require 'rbhex'
+require 'rbhex/core'
 ##
 module RubyCurses
   class Link < Button

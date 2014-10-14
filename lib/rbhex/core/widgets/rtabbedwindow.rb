@@ -14,7 +14,7 @@
   == CHANGES
   == TODO
 =end
-require 'rbhex'
+require 'rbhex/core'
 require 'rbhex/core/widgets/rtabbedpane'
 require 'rbhex/core/widgets/rcontainer'
 

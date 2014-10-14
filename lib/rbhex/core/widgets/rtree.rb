@@ -13,7 +13,7 @@ TODO:
    [/] expand all descendants
    ++ +- and +?
 =end
-require 'rbhex'
+require 'rbhex/core'
 require 'rbhex/core/widgets/tree/treemodel'
 require 'rbhex/core/widgets/tree/treecellrenderer'
 require 'rbhex/core/include/bordertitle'

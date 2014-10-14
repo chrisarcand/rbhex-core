@@ -16,7 +16,7 @@ Todo:
 
 =end
 require 'logger'
-require 'rbhex'
+require 'rbhex/core'
 require 'rbhex/core/include/listscrollable'
 require 'rbhex/core/include/rinputdataevent'
 require 'rbhex/core/include/listeditable'

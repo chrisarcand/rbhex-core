@@ -1,6 +1,6 @@
 # this is a test program, tests out widget shortcuts. type C-q to exit
 #
-require 'rbhex'
+require 'rbhex/core'
 require 'rbhex/core/util/widgetshortcuts'
 
 include RubyCurses

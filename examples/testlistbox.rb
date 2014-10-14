@@ -14,7 +14,7 @@
 # The new style is to use App which does the ncurses setup and teardown, as well
 # as manages keys. It also takes care of logger and includes major stuff.
 require 'logger'
-require 'rbhex'
+require 'rbhex/core'
 require 'rbhex/core/widgets/rlist'
 require 'rbhex/core/widgets/rtextview'
 require 'rbhex/core/include/vieditable'

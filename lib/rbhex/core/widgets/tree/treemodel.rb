@@ -1,7 +1,7 @@
 # File TreeModel
 # (c) rkumar arunachalesha
 # Created on: Fri Sep 17 20:03:10 IST 2010
-require 'rbhex'
+require 'rbhex/core'
 
 module RubyCurses
   class IllegalStateException < Exception

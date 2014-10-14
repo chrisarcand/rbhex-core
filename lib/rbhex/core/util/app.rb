@@ -15,7 +15,7 @@ Todo:
 
 =end
 require 'logger'
-require 'rbhex'
+require 'rbhex/core'
 require 'rbhex/core/util/widgetshortcuts'
 
 include RubyCurses
