@@ -16,8 +16,8 @@
 =end
 require 'rbhex/core'
 
-include RubyCurses
-module RubyCurses
+include Rbhex
+module Rbhex
   class PadReader
 
     # You may pass height, width, row and col for creating a window otherwise a fullscreen window

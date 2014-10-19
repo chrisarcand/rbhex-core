@@ -127,7 +127,7 @@ module VER
     $stderr.puts @last_error, *@last_error.backtrace
   end
 require 'rbhex/core/system/colormap'
-include RubyCurses::ColorMap
+include Rbhex::ColorMap
 end
 module Ncurses
   extend self

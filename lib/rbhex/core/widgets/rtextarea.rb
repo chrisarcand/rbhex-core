@@ -23,8 +23,8 @@ require 'rbhex/core/include/listeditable'
 require 'rbhex/core/include/bordertitle'
 
 #include Ncurses # FFI 2011-09-8
-include RubyCurses
-module RubyCurses
+include Rbhex
+module Rbhex
   extend self
 
   ## a multiline text editing widget

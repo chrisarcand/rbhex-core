@@ -21,7 +21,7 @@ require 'rbhex/core/include/bordertitle'
 TreeSelectionEvent = Struct.new(:node, :tree, :state, :previous_node, :row_first)
 
 #include Ncurses # FFI 2011-09-8
-module RubyCurses
+module Rbhex
   extend self
   # a representation of heirarchical data in outline form
   # Currently supports only single selection, and does not allow editing.
@@ -163,7 +163,7 @@ module RubyCurses
       end
 
       raise ArgumentError, "root: node cannot be nil" unless node
-      @treemodel = RubyCurses::DefaultTreeModel.new(node, asks_allow_children, &block)
+      @treemodel = Rbhex::DefaultTreeModel.new(node, asks_allow_children, &block)
     end
 
     # pass data to create this tree model
@@ -175,14 +175,14 @@ module RubyCurses
       @data = alist # data given by user
       case alist
       when Array
-        @treemodel = RubyCurses::DefaultTreeModel.new("/")
+        @treemodel = Rbhex::DefaultTreeModel.new("/")
         @treemodel.root.add alist
       when Hash
-        @treemodel = RubyCurses::DefaultTreeModel.new("/")
+        @treemodel = Rbhex::DefaultTreeModel.new("/")
         @treemodel.root.add alist
       when TreeNode
         # this is a root node
-        @treemodel = RubyCurses::DefaultTreeModel.new(alist)
+        @treemodel = Rbhex::DefaultTreeModel.new(alist)
       when DefaultTreeModel
         @treemodel = alist
       else
@@ -414,7 +414,7 @@ module RubyCurses
       end
     end
     def create_default_cell_renderer
-      return RubyCurses::TreeCellRenderer.new "", {"color"=>@color, "bgcolor"=>@bgcolor, "parent" => self, "display_length"=> @width-@internal_width-@left_margin}
+      return Rbhex::TreeCellRenderer.new "", {"color"=>@color, "bgcolor"=>@bgcolor, "parent" => self, "display_length"=> @width-@internal_width-@left_margin}
     end
     ##
     # this method chops the data to length before giving it to the

@@ -7,7 +7,7 @@
 #   @toprow : set to 0 for starters, top row to be displayed
 #   @pcol (used for horiz scrolling, starts at 0)
 #
-module RubyCurses
+module Rbhex
   module ListScrollable
     attr_reader :search_found_ix, :find_offset, :find_offset1
     attr_accessor :show_caret # 2010-01-23 23:06 our own fake insertion point

@@ -35,8 +35,8 @@ require 'rbhex/core/widgets/tabular'
 require 'rbhex/core/include/listselectable'
 require 'rbhex/core/include/bordertitle'
 
-#include RubyCurses
-module RubyCurses
+#include Rbhex
+module Rbhex
   extend self
   # used when firing a column resize, so calling application can perhaps
   # resize other columns.
@@ -174,7 +174,7 @@ module RubyCurses
       # NOTE: why doesn't set_content take in columns
       # @param [Array / Tabular] data to be displayed
       def set_content list, columns=nil
-        if list.is_a? RubyCurses::Tabular
+        if list.is_a? Rbhex::Tabular
           @list = list
         elsif list.is_a? Array
           @list = list

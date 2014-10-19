@@ -8,7 +8,7 @@
 # ------------------------------------------------------------ #
 #
 
-module RubyCurses
+module Rbhex
   module Chunks
     extend self
     class Chunk

@@ -40,8 +40,8 @@ def help_text
 end
 if $0 == __FILE__
 
-  include RubyCurses
-  include RubyCurses::Utils
+  include Rbhex
+  include Rbhex::Utils
 
   begin
   # Initialize curses
@@ -124,7 +124,7 @@ if $0 == __FILE__
 
       @form.bind_key(FFI::NCurses::KEY_F3,'view log') {
         require 'rbhex/core/util/viewer'
-        RubyCurses::Viewer.view(path || "rbc13.log", :close_key => KEY_ENTER, :title => "<Enter> to close")
+        Rbhex::Viewer.view(path || "rbc13.log", :close_key => KEY_ENTER, :title => "<Enter> to close")
       }
       @form.bind_key(FFI::NCurses::KEY_F4, 'system command') {  shell_output }
       @form.bind_key(FFI::NCurses::KEY_F5, 'shell') {  suspend }

@@ -17,8 +17,8 @@
 # ----------------------------------------------------------------------------- #
 #
 require 'rbhex/core/widgets/rwidget'
-include RubyCurses
-module RubyCurses
+include Rbhex
+module Rbhex
   class ApplicationHeader < Widget
     dsl_property :text1
     dsl_property :text2

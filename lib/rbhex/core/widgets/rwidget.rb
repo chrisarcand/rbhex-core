@@ -136,7 +136,7 @@ unless "a"[0] == "a"
   end
 end
 
-module RubyCurses
+module Rbhex
   extend self
   include ColorMap
     class FieldValidationException < RuntimeError
@@ -596,7 +596,7 @@ module RubyCurses
       # view a file or array of strings
       def view what, config={}, &block # :yields: textview for further configuration
         require 'rbhex/core/util/viewer'
-        RubyCurses::Viewer.view what, config, &block
+        Rbhex::Viewer.view what, config, &block
       end
     end # module
 
@@ -750,7 +750,7 @@ module RubyCurses
     # prints a status line at bottom where mode's statuses et can be reflected
     def status_line config={}, &block
       require 'rbhex/core/widgets/statusline'
-      sl = RubyCurses::StatusLine.new @form, config, &block
+      sl = Rbhex::StatusLine.new @form, config, &block
     end
 
     # add a standard application header
@@ -765,7 +765,7 @@ module RubyCurses
     # prints pine-like key labels
     def dock labels, config={}, &block
       require 'rbhex/core/widgets/keylabelprinter'
-      klp = RubyCurses::KeyLabelPrinter.new @form, labels, config, &block
+      klp = Rbhex::KeyLabelPrinter.new @form, labels, config, &block
     end
 
     ##
@@ -778,7 +778,7 @@ module RubyCurses
     require 'rbhex/core/include/action'          # added 2012-01-3 for add_action
     include EventHandler
     include ConfigSetup
-    include RubyCurses::Utils
+    include Rbhex::Utils
     include Io # added 2010-03-06 13:05
     # common interface for text related to a field, label, textview, button etc
     dsl_property :text
@@ -1253,7 +1253,7 @@ module RubyCurses
   # in one place.
   class Form
     include EventHandler
-    include RubyCurses::Utils
+    include Rbhex::Utils
     attr_reader :value # ???
 
     # array of widgets
@@ -1909,9 +1909,9 @@ module RubyCurses
     $log.debug "DEPRECATED DUMPING DATA "
     @widgets.each do |w|
       # we need checkbox and radio button values
-      #next if w.is_a? RubyCurses::Button or w.is_a? RubyCurses::Label
-      next if w.is_a? RubyCurses::Label
-      next if !w.is_a? RubyCurses::Widget
+      #next if w.is_a? Rbhex::Button or w.is_a? Rbhex::Label
+      next if w.is_a? Rbhex::Label
+      next if !w.is_a? Rbhex::Widget
       if w.respond_to? :getvalue
         $log.debug " #{w.name} #{w.getvalue}"
       else
@@ -2021,7 +2021,7 @@ module RubyCurses
       w = FFI::NCurses.COLS - 10
 
       require 'rbhex/core/util/viewer'
-      RubyCurses::Viewer.view(arr, :layout => [2, 4, h, w],:close_key => KEY_F10, :title => "[ Help ]", :print_footer => true) do |t|
+      Rbhex::Viewer.view(arr, :layout => [2, 4, h, w],:close_key => KEY_F10, :title => "[ Help ]", :print_footer => true) do |t|
         # you may configure textview further here.
         #t.suppress_borders true
         #t.color = :black
@@ -2737,7 +2737,7 @@ module RubyCurses
         ch = @mnemonic.downcase()[0].ord   ##  1.9 DONE
         # meta key
         mch = ?\M-a.getbyte(0) + (ch - ?a.getbyte(0))  ## 1.9
-        if (@label_for.is_a? RubyCurses::Button ) && (@label_for.respond_to? :fire)
+        if (@label_for.is_a? Rbhex::Button ) && (@label_for.respond_to? :fire)
           @form.bind_key(mch, "hotkey for button #{@label_for.text} ") { |_form, _butt| @label_for.fire }
         else
           $log.debug " bind_hotkey label for: #{@label_for}"
@@ -3274,4 +3274,4 @@ module RubyCurses
   end
 
 end # module
-include RubyCurses::Utils
+include Rbhex::Utils

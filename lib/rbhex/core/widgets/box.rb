@@ -8,15 +8,15 @@
 #
 require 'rbhex/core'
 require 'rbhex/core/include/bordertitle'
-include RubyCurses
-#include RubyCurses::BorderTitle
+include Rbhex
+#include Rbhex::BorderTitle
 
 # @example
 #
 # At a later stage, we will integrate this with lists and tables, so it will happen automatically.
 #
 # @since 1.4.1    UNTESTED
-module RubyCurses
+module Rbhex
   class Box < Widget
 
     include BorderTitle

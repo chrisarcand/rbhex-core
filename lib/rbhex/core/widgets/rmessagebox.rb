@@ -23,12 +23,12 @@
 require 'rbhex/core'
 require 'rbhex/core/include/bordertitle'
 
-include RubyCurses
-module RubyCurses
+include Rbhex
+module Rbhex
   extend self
   class MessageBox
     include BorderTitle
-    include RubyCurses::Utils
+    include Rbhex::Utils
 
     attr_reader :form
     attr_reader :window
@@ -153,11 +153,11 @@ module RubyCurses
       # trying this out. sometimes very long labels get truncated, so i give a field in wchich user
       # can use arrow key or C-a and C-e
       if message.size > display_length
-        message_label = RubyCurses::Field.new @form, {:text => message, :name=>"message_label",
+        message_label = Rbhex::Field.new @form, {:text => message, :name=>"message_label",
           :row => r, :col => message_col, :display_length => display_length,
           :bgcolor => bgclr , :color => clr, :editable => false}
       else
-        message_label = RubyCurses::Label.new @form, {:text => message, :name=>"message_label",
+        message_label = Rbhex::Label.new @form, {:text => message, :name=>"message_label",
           :row => r, :col => message_col, :display_length => display_length,
           :height => message_height, :bgcolor => bgclr , :color => clr}
       end
@@ -209,7 +209,7 @@ module RubyCurses
       available_ht = brow - r + 1
       message_height = [message_height, available_ht].min
       require 'rbhex/core/widgets/rtextview'
-      message_label = RubyCurses::TextView.new @form, {:name=>"message_label", :text => message,
+      message_label = Rbhex::TextView.new @form, {:name=>"message_label", :text => message,
         :row => r, :col => message_col, :width => display_length, :suppress_borders => true,
         :height => message_height, :bgcolor => bgclr , :color => clr}
       #message_label.set_content message

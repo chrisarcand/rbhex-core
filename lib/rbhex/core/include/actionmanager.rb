@@ -9,7 +9,7 @@
 # ----------------------------------------------------------------------------- #
 #
 # Maintains actions for a widget
-module RubyCurses
+module Rbhex
   class ActionManager
     include Io
     attr_reader :actions

@@ -8,7 +8,7 @@
 # make_focusable is called, or toggle_focusable. Now user can press TAB and access
 # these bars. When he is done he can toggle again.
 # TODO: we might add a Circular class here so user can traverse only these objects
-module RubyCurses
+module Rbhex
   module FocusManager
     extend self
     attr_reader :focusables

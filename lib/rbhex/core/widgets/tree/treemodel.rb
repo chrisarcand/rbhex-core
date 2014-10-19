@@ -3,12 +3,12 @@
 # Created on: Fri Sep 17 20:03:10 IST 2010
 require 'rbhex/core'
 
-module RubyCurses
+module Rbhex
   class IllegalStateException < Exception
   end
 
   class DefaultTreeModel #< TreeModel
-    include RubyCurses::EventHandler
+    include Rbhex::EventHandler
     attr_reader :asks_allow_children
     attr_accessor :root_visible
     def initialize node=nil, asks_allow_children=false, &block
@@ -395,7 +395,7 @@ if $0 == __FILE__
   $log = Logger.new("rbc13.log")
   $log.level = Logger::DEBUG
 
-  include RubyCurses
+  include Rbhex
   root    =  TreeNode.new "ROOT"
   subroot =  TreeNode.new "subroot"
   leaf1   =  TreeNode.new "leaf 1"

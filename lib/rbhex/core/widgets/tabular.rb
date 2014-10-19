@@ -9,21 +9,21 @@
                     not where i want the user to select columns, move them, expand etc.
   *               :
   * Author        : rkumar
-  * Date          : 
+  * Date          :
   * License       :
     Same as Ruby's License (http://www.ruby-lang.org/LICENSE.txt)
 
 =end
 
 #
-# A simple tabular data generator. Given table data in arrays and a column heading row in arrays, it 
+# A simple tabular data generator. Given table data in arrays and a column heading row in arrays, it
 # quickely generates tabular data. It only takes left and right alignment of columns into account.
-#   You may specify individual column widths. Else it will take the widths of the column names you supply 
+#   You may specify individual column widths. Else it will take the widths of the column names you supply
 # in the startup array. You are encouraged to supply column widths.
-#   If no columns are specified, and no widths are given, it take the widths of the first row 
-# as a model to determine column widths. 
+#   If no columns are specified, and no widths are given, it take the widths of the first row
+# as a model to determine column widths.
 #
-module RubyCurses
+module Rbhex
 
   class Tabular
     GUESSCOLUMNS = 20
@@ -68,13 +68,13 @@ module RubyCurses
       yield_or_eval(&block) if block_given?
     end
     #
-    # set columns names 
+    # set columns names
     # @param [Array<String>] column names, preferably padded out to width for column
     def columns=(array)
       $log.debug "tabular got columns #{array.count} #{array.inspect} " if $log
       @columns = array
-      @columns.each_with_index { |c,i| 
-        @chash[i] = ColumnInfo.new(c, c.to_s.length) 
+      @columns.each_with_index { |c,i|
+        @chash[i] = ColumnInfo.new(c, c.to_s.length)
         @cw[i] ||= c.to_s.length
         #@calign[i] ||= :left # 2011-09-27 prevent setting later on
       }
@@ -89,7 +89,7 @@ module RubyCurses
       @list = list
     end
 
-    # add a row of data 
+    # add a row of data
     # @param [Array] an array containing entries for each column
     def add array
       $log.debug "tabular got add  #{array.count} #{array.inspect} " if $log
@@ -105,7 +105,7 @@ module RubyCurses
     def column_width colindex, width
       @cw[colindex] ||= width
       if @chash[colindex].nil?
-        @chash[colindex] = ColumnInfo.new("", width) 
+        @chash[colindex] = ColumnInfo.new("", width)
       else
         @chash[colindex].w = width
       end
@@ -126,7 +126,7 @@ module RubyCurses
       @chash
     end
 
-    # 
+    #
     # Now returns an array with formatted data
     # @return [Array<String>] array of formatted data
     def render
@@ -135,7 +135,7 @@ module RubyCurses
       rows = @list.size.to_s.length
       @rows = rows
       _prepare_format
-      
+
       str = ""
       if @numbering
         str = " "*(rows+1)+@y
@@ -150,7 +150,7 @@ module RubyCurses
         end
         #@list.each { |e| puts e.join(@y) }
         count = 0
-        @list.each_with_index { |r,i|  
+        @list.each_with_index { |r,i|
           value = convert_value_to_text r, count
           buffer << value
           count += 1
@@ -165,7 +165,7 @@ module RubyCurses
       if @numbering
         r.insert 0, count+1
       end
-      return @fmstr % r;  
+      return @fmstr % r;
     end
     # use this for printing out on terminal
     # @example
@@ -187,7 +187,7 @@ module RubyCurses
     end
     private
     def _guess_col_widths  #:nodoc:
-      @list.each_with_index { |r, i| 
+      @list.each_with_index { |r, i|
         break if i > GUESSCOLUMNS
         next if r == :separator
         r.each_with_index { |c, j|
@@ -203,7 +203,7 @@ module RubyCurses
     def _prepare_format  #:nodoc:
       @fmtstr = nil
       fmt = []
-      @cw.each_with_index { |c, i| 
+      @cw.each_with_index { |c, i|
         w = @cw[i]
         case @calign[i]
         when :right
@@ -219,11 +219,11 @@ module RubyCurses
 end
 
 if __FILE__ == $PROGRAM_NAME
-  include RubyCurses
+  include Rbhex
   $log = nil
   t = Tabular.new(['a', 'b'], [1, 2], [3, 4])
   puts t.to_s
-  puts 
+  puts
   t = Tabular.new([" Name ", " Number ", "  Email    "])
   t.add %w{ rahul 32 r@ruby.org }
   t << %w{ _why 133 j@gnu.org }
@@ -235,9 +235,9 @@ if __FILE__ == $PROGRAM_NAME
 
   s = Tabular.new do |b|
     b.columns = %w{ country continent text }
-    b << ["india","asia","a warm country" ] 
-    b << ["japan","asia","a cool country" ] 
-    b << ["russia","europe","a hot country" ] 
+    b << ["india","asia","a warm country" ]
+    b << ["japan","asia","a cool country" ]
+    b << ["russia","europe","a hot country" ]
     b.column_width 2, 30
   end
   puts s.to_s
@@ -246,16 +246,16 @@ if __FILE__ == $PROGRAM_NAME
   puts
   s = Tabular.new do |b|
     b.columns = %w{ place continent text }
-    b << ["india","asia","a warm country" ] 
-    b << ["japan","asia","a cool country" ] 
-    b << ["russia","europe","a hot country" ] 
-    b << ["sydney","australia","a dry country" ] 
-    b << ["canberra","australia","a dry country" ] 
-    b << ["ross island","antarctica","a dry country" ] 
-    b << ["mount terror","antarctica","a windy country" ] 
-    b << ["mt erebus","antarctica","a cold place" ] 
-    b << ["siberia","russia","an icy city" ] 
-    b << ["new york","USA","a fun place" ] 
+    b << ["india","asia","a warm country" ]
+    b << ["japan","asia","a cool country" ]
+    b << ["russia","europe","a hot country" ]
+    b << ["sydney","australia","a dry country" ]
+    b << ["canberra","australia","a dry country" ]
+    b << ["ross island","antarctica","a dry country" ]
+    b << ["mount terror","antarctica","a windy country" ]
+    b << ["mt erebus","antarctica","a cold place" ]
+    b << ["siberia","russia","an icy city" ]
+    b << ["new york","USA","a fun place" ]
     b.column_width 0, 12
     b.column_width 1, 12
     b.numbering = true

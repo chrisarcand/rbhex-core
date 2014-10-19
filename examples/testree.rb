@@ -68,7 +68,7 @@ class Tester
 
     #
     help = "C-q to quit. <ENTER> to expand nodes. j/k to navigate. Pass command-line argument 1,2,3,4  #{$0} "
-    RubyCurses::Label.new @form, {:text => help, :row => 1, :col => 2, :color => :cyan}
+    Rbhex::Label.new @form, {:text => help, :row => 1, :col => 2, :color => :cyan}
     @form.repaint
     @window.wrefresh
     Ncurses::Panel.update_panels
@@ -85,8 +85,8 @@ class Tester
 
   end
 end
-include RubyCurses
-include RubyCurses::Utils
+include Rbhex
+include Rbhex::Utils
 # Initialize curses
 begin
   # XXX update with new color and kb

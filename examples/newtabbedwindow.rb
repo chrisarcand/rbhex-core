@@ -7,7 +7,7 @@ require 'rbhex/core/widgets/rcontainer'
 require 'rbhex/core/widgets/rcombo'
 require 'rbhex/core/widgets/rtabbedwindow'
 
-include RubyCurses
+include Rbhex
 class SetupTabbedPane
   def run
     $config_hash ||= Variable.new Hash.new

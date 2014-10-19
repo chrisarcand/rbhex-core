@@ -7,7 +7,7 @@ require 'fileutils'
 # TODO: add vi_keys here
 # SUGGESTIONS WELCOME.
 # @since 1.2.0
-module RubyCurses
+module Rbhex
   # a data viewer for viewing some text or filecontents
   # view filename, :close_key => KEY_ENTER
   # send data in an array
@@ -42,12 +42,12 @@ module RubyCurses
 
       layout = { :height => wh, :width => ww, :top => wt, :left => wl }
       v_window = VER::Window.new(layout)
-      v_form = RubyCurses::Form.new v_window
+      v_form = Rbhex::Form.new v_window
       colors = Ncurses.COLORS
       back = :blue
       back = 235 if colors >= 256
       blue_white = get_color($datacolor, :white, back)
-      #blue_white = RubyCurses::Utils.get_color($datacolor, :white, 235)
+      #blue_white = Rbhex::Utils.get_color($datacolor, :white, 235)
       textview = TextView.new v_form do
         name   "Viewer"
         row  0
@@ -62,7 +62,7 @@ module RubyCurses
         border_color blue_white
       end
       require 'rbhex/core/include/multibuffer'
-      textview.extend(RubyCurses::MultiBuffers)
+      textview.extend(Rbhex::MultiBuffers)
 
       t = textview
       t.bind_key('<', 'move window left'){ f = t.form.window; c = f.left - 1; f.hide; f.mvwin(f.top, c); f.show;
@@ -136,7 +136,7 @@ App.new do
   header = app_header "rbhex 1.2.0", :text_center => "Viewer Demo", :text_right =>"New Improved!", :color => :black, :bgcolor => :white, :attr => :bold
   message "Press F1 to exit from here"
 
-    RubyCurses::Viewer.view(ARGV[0] || $0, :close_key => KEY_ENTER, :title => "Enter to close") do |t|
+    Rbhex::Viewer.view(ARGV[0] || $0, :close_key => KEY_ENTER, :title => "Enter to close") do |t|
       # you may configure textview further here.
       #t.suppress_borders true
       #t.color = :black

@@ -1,13 +1,13 @@
-module RubyCurses
+module Rbhex
   # this module makes it possible for a textview to maintain multiple buffers
-  # The first buffer has been placed using set_content(lines, config). 
+  # The first buffer has been placed using set_content(lines, config).
   # After this, additional buffers mst be supplied with add_content text, config.
-  # Also, please note that after you call set_content the first time, you must call 
+  # Also, please note that after you call set_content the first time, you must call
   # add_content so the buffer can be accessed while cycling. will try to fix this.
   # (I don't want to touch textview, would prefer not to write a decorator).
 
   # TODO allow setting of a limit, so in some cases where we keep adding
-  # programatically, the 
+  # programatically, the
   module MultiBuffers
     extend self
 
@@ -61,7 +61,7 @@ module RubyCurses
       @graphic.ungetch(?q.ord)
     end
     # display a menu so user can do buffer management
-    # However, how can application add to these. Or disable, such as when we 
+    # However, how can application add to these. Or disable, such as when we
     # add buffer delete or buffer insert or edit
     def buffer_menu
       menu = PromptMenu.new self do

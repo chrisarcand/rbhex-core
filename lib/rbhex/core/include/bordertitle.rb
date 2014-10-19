@@ -1,6 +1,6 @@
-# I am moving the common title and border printing stuff into 
+# I am moving the common title and border printing stuff into
 # a separate module.
-module RubyCurses
+module Rbhex
   module BorderTitle
     dsl_accessor :suppress_borders            #to_print_borders
     dsl_accessor :border_attrib, :border_color
@@ -9,7 +9,7 @@ module RubyCurses
 
     def bordertitle_init
       @_bordertitle_init_called = true
-      @row_offset = @col_offset = 0 if @suppress_borders 
+      @row_offset = @col_offset = 0 if @suppress_borders
       @internal_width = 1 if @suppress_borders # the other programs have zero not 1 NOTE
     end
     # why the dash does it reduce height by one.
@@ -21,8 +21,8 @@ module RubyCurses
       width = @width
       height = @height-1
       window = @graphic
-      startcol = @col 
-      startrow = @row 
+      startcol = @col
+      startrow = @row
       @color_pair = get_color($datacolor)
       bordercolor = @border_color || @color_pair
       borderatt = @border_attrib || Ncurses::A_NORMAL
@@ -33,7 +33,7 @@ module RubyCurses
       bordertitle_init unless @_bordertitle_init_called
       return unless @title
       raise "#{self} needs width" unless @width
-      @color_pair ||= get_color($datacolor) # should we not use this ??? XXX 
+      @color_pair ||= get_color($datacolor) # should we not use this ??? XXX
       #$log.debug " print_title #{@row}, #{@col}, #{@width}  "
       # check title.length and truncate if exceeds width
       _title = @title

@@ -10,7 +10,7 @@
 #
 
 require 'rbhex/core/include/appmethods'
-module RubyCurses
+module Rbhex
   def file_edit fp #=@current_list.filepath
     #$log.debug " edit #{fp}"
     editor = ENV['EDITOR'] || 'vi'
@@ -42,4 +42,4 @@ module RubyCurses
   end
 
 end # module
-include RubyCurses
+include Rbhex

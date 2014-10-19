@@ -6,7 +6,7 @@
 
 **2013-04-01**
 ## 0.0.14 rbcurse-core
-   * added module RubyCurses to various modules that were coming as top layer
+   * added module Rbhex to various modules that were coming as top layer
      Things could break !!!
    * minor fix in rlist list()
 

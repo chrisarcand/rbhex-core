@@ -1,5 +1,5 @@
 require 'rbhex/core/widgets/rwidget'
-module RubyCurses
+module Rbhex
 
   ##
   #  2010-09-27 11:06 : i have modified this quite a bit, to calculate some stuff
@@ -10,8 +10,8 @@ module RubyCurses
   # NOTE: this class is being extended by many other classes. Careful while making
   # sweeping changes.
   class ListCellRenderer
-    include RubyCurses::ConfigSetup
-    include RubyCurses::Utils
+    include Rbhex::ConfigSetup
+    include Rbhex::Utils
     dsl_accessor :justify     # :right, :left, :center  # added 2008-12-22 19:02
     dsl_accessor :display_length     #  please give this to ensure the we only print this much
     dsl_accessor :height    # if you want a multiline label.

@@ -28,8 +28,8 @@ a user friendly string to identifiy the action, as well as a disabled option.
 #require 'logger'
 require 'rbhex/core'
 
-include RubyCurses
-module RubyCurses
+include Rbhex
+module Rbhex
   extend self
 
 
@@ -300,7 +300,7 @@ module RubyCurses
             item(:NO_MENUITEMS)
         end
         create_window
-        if !@parent.is_a? RubyCurses::MenuBar
+        if !@parent.is_a? Rbhex::MenuBar
           @parent.current_menu << self
           @@menus << self # NEW
         end
@@ -321,7 +321,7 @@ module RubyCurses
       #return if @items.nil? or @items.empty? # commented 2011-09-24 NEWMENU
       #$log.debug "menu repaint: #{text} row #{@row} col #{@col}  "
       @color_pair  = get_color($reversecolor, @color, @bgcolor)
-      if !@parent.is_a? RubyCurses::MenuBar
+      if !@parent.is_a? Rbhex::MenuBar
         @parent.window.printstring( @row, 0, "|%-*s>|" % [@width-1, text], @color_pair)
         @parent.window.refresh
       end
@@ -417,7 +417,7 @@ module RubyCurses
     def on_enter # menu.on_enter
       #$log.debug "menu onenter: #{text} #{@row} #{@col}  "
       # call parent method. XXX
-        #if @parent.is_a? RubyCurses::MenuBar
+        #if @parent.is_a? Rbhex::MenuBar
           #acolor = get_color($datacolor, @bgcolor, @color)
           #@parent.window.printstring( @row, @col, " %s " % text, acolor)
         #else
@@ -427,7 +427,7 @@ module RubyCurses
           #$log.debug "menu onenter: #{text} calling window,show"
           @window.show
           select_item 0
-        elsif @parent.is_a? RubyCurses::MenuBar and  @parent.selected
+        elsif @parent.is_a? Rbhex::MenuBar and  @parent.selected
           # only on the top level do we open a window if a previous one was opened
           #$log.debug "menu onenter: #{text} calling repaint CLASS: #{@parent.class}"
         #  repaint
@@ -438,7 +438,7 @@ module RubyCurses
       #$log.debug "menu onleave: #{text} #{@row} #{@col}  "
       # call parent method. XXX
       @color_pair  ||= get_color($reversecolor, @color, @bgcolor)
-        if @parent.is_a? RubyCurses::MenuBar
+        if @parent.is_a? Rbhex::MenuBar
 #          @parent.window.printstring( @row, @col, " %s " % text, $reversecolor) # changed 2011 2011-09-24
           @parent.window.printstring( @row, @col, " %s " % text, @color_pair)
           @window.hide if !@window.nil?
@@ -452,7 +452,7 @@ module RubyCurses
         end
     end
     def highlight tf=true # menu
-      if @parent.is_a? RubyCurses::MenuBar  # top level menu
+      if @parent.is_a? Rbhex::MenuBar  # top level menu
         #acolor = get_color($datacolor, @bgcolor, @color)
         #@parent.window.printstring( @row, @col, " %s " % text, acolor)
         @color_pair  ||= get_color($reversecolor, @color, @bgcolor)
@@ -573,7 +573,7 @@ module RubyCurses
       when KEY_DOWN
         cmenu.select_next_item
         #return cmenu.fire # XXX 2010-10-16 21:39 trying out
-        if cmenu.is_a? RubyCurses::Menu
+        if cmenu.is_a? Rbhex::Menu
           #alert "is a menu" # this gets triggered even when we are on items
         end
       when KEY_UP
@@ -581,13 +581,13 @@ module RubyCurses
       when KEY_ENTER, 10, 13, 32 # added 32 2008-11-27 23:50
         return cmenu.fire
       when KEY_LEFT
-        if cmenu.parent.is_a? RubyCurses::Menu
+        if cmenu.parent.is_a? Rbhex::Menu
        #$log.debug "LEFT IN MENU : #{cmenu.parent.class} len: #{cmenu.parent.current_menu.length}"
        #$log.debug "left IN MENU : #{cmenu.parent.class} len: #{cmenu.current_menu.length}"
         end
         ret = cmenu.select_left_item # 2011-09-24 V1.3.1 attempt to goto left item if columns
         if ret == :UNHANDLED
-          if cmenu.parent.is_a? RubyCurses::MenuBar #and !cmenu.parent.current_menu.empty?
+          if cmenu.parent.is_a? Rbhex::MenuBar #and !cmenu.parent.current_menu.empty?
             #$log.debug " ABOU TO DESTROY DUE TO LEFT"
             cmenu.current_menu.pop
             @@menus.pop ## NEW
@@ -595,7 +595,7 @@ module RubyCurses
             return :UNHANDLED
           end
           # LEFT on a menu list allows me to close and return to higher level
-          if cmenu.parent.is_a? RubyCurses::Menu #and !cmenu.parent.current_menu.empty?
+          if cmenu.parent.is_a? Rbhex::Menu #and !cmenu.parent.current_menu.empty?
             #$log.debug " ABOU TO DESTROY DUE TO LEFT"
             cmenu.current_menu.pop
             @@menus.pop ## NEW
@@ -606,7 +606,7 @@ module RubyCurses
       when KEY_RIGHT
        $log.debug "RIGHTIN MENU : #{text}  "
        if cmenu.active_index
-        if cmenu.items[cmenu.active_index].is_a?  RubyCurses::Menu
+        if cmenu.items[cmenu.active_index].is_a?  Rbhex::Menu
           #alert "could fire here cmenu: #{cmenu.text}, par: #{cmenu.parent.text} "
           cmenu.fire
           return
@@ -618,8 +618,8 @@ module RubyCurses
        ret = cmenu.select_right_item # 2011-09-24 V1.3.1 attempt to goto right item if columns
        #alert "attempting to select right #{ret} "
         if ret == :UNHANDLED
-          #if cmenu.parent.is_a? RubyCurses::Menu and !cmenu.parent.current_menu.empty?
-          if cmenu.parent.is_a? RubyCurses::MenuBar #and !cmenu.current_menu.empty?
+          #if cmenu.parent.is_a? Rbhex::Menu and !cmenu.parent.current_menu.empty?
+          if cmenu.parent.is_a? Rbhex::MenuBar #and !cmenu.current_menu.empty?
             $log.debug " ABOU TO DESTROY DUE TO RIGHT"
             cmenu.current_menu.pop
             @@menus.pop

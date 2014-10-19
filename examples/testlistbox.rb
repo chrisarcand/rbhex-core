@@ -19,7 +19,7 @@ require 'rbhex/core/widgets/rlist'
 require 'rbhex/core/widgets/rtextview'
 require 'rbhex/core/include/vieditable'
 #require 'rbhex/experimental/widgets/undomanager'
-class RubyCurses::List
+class Rbhex::List
   # vieditable includes listeditable which
   # does bring in some functions which can crash program like x and X TODO
   # also, f overrides list f mapping. TODO
@@ -67,7 +67,7 @@ end
     eos
   end
 if $0 == __FILE__
-  include RubyCurses
+  include Rbhex
 
   begin
   # Initialize curses
@@ -94,7 +94,7 @@ if $0 == __FILE__
       # this is the old style of using a label at the screen bottom, you can use the status_line
 
       v = "F10 quits. F1 Help.  Try j k gg G o O C dd f<char> w yy p P / . Press ENTER on Class or Method"
-      var = RubyCurses::Label.new @form, {'text' => v, "row" => FFI::NCurses.LINES-2,
+      var = Rbhex::Label.new @form, {'text' => v, "row" => FFI::NCurses.LINES-2,
         "col" => fc, "display_length" => 100}
 
       h = FFI::NCurses.LINES-3
@@ -129,12 +129,12 @@ if $0 == __FILE__
         #w.title = listb.text
       }
 
-      tv = RubyCurses::TextView.new @form, :row => r, :col => w+1, :height => h, :width => FFI::NCurses.COLS-w-1,
+      tv = Rbhex::TextView.new @form, :row => r, :col => w+1, :height => h, :width => FFI::NCurses.COLS-w-1,
       :name => "tv", :title => "Press Enter on method"
       tv.set_content ["Press Enter on list to view ri information in this area.",
         "Press ENTER on method name to see details"]
       require 'rbhex/core/include/multibuffer'
-      tv.extend(RubyCurses::MultiBuffers)
+      tv.extend(Rbhex::MultiBuffers)
 
       # pressing ENTER on a method name will popup details for that method
       tv.bind(:PRESS) { |ev|

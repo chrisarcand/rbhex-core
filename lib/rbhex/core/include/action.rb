@@ -16,8 +16,8 @@
 # ----------------------------------------------------------------------------- #
 #
 require 'rbhex/core/widgets/rwidget'
-include RubyCurses
-module RubyCurses
+include Rbhex
+module Rbhex
   ## encapsulates behaviour allowing centralization
   # == Example
   #    a = Action.new("&New Row") { commands }

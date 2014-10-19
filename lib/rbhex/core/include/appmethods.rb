@@ -1,4 +1,4 @@
-module RubyCurses
+module Rbhex
   module Utils
     private
     def _suspend clear=true
@@ -65,7 +65,7 @@ module RubyCurses
       w = arr.max_by(&:length).length
 
       require 'rbhex/core/util/viewer'
-      RubyCurses::Viewer.view(arr, :layout => [2, 10, [4+arr.size, 24].min, w+2],:close_key => KEY_ENTER, :title => "<Enter> to close", :print_footer => true) do |t|
+      Rbhex::Viewer.view(arr, :layout => [2, 10, [4+arr.size, 24].min, w+2],:close_key => KEY_ENTER, :title => "<Enter> to close", :print_footer => true) do |t|
       # you may configure textview further here.
       #t.suppress_borders true
       #t.color = :black
@@ -103,7 +103,7 @@ module RubyCurses
         res << ex.backtrace.join("\n")
       end
       res.gsub!("\t","   ")
-      RubyCurses::Viewer.view(res.split("\n"), :close_key => KEY_ENTER, :title => "<Enter> to close, M-l M-h to scroll")
+      Rbhex::Viewer.view(res.split("\n"), :close_key => KEY_ENTER, :title => "<Enter> to close, M-l M-h to scroll")
     end
     def shell_out command
       w = @window || @form.window
@@ -211,4 +211,4 @@ module RubyCurses
     alias :key :define_key
   end
 end # module RubyC
-include RubyCurses::Utils
+include Rbhex::Utils

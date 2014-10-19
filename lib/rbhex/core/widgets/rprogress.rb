@@ -3,8 +3,8 @@ require 'logger'
 require 'rbhex/core'
 
 #include Ncurses # FFI 2011-09-8
-include RubyCurses
-module RubyCurses
+include Rbhex
+module Rbhex
   extend self
   ##
   # TODO user may want to print a label on progress: like not started or complete.

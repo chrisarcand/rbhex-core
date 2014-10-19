@@ -1,7 +1,7 @@
 # 2010-09-18 15:35
 require 'rbhex/core'
 require 'rbhex/core/widgets/rwidget'
-module RubyCurses
+module Rbhex
 
   ##
   # This is a basic list cell renderer that will render the to_s value of anything.
@@ -11,8 +11,8 @@ module RubyCurses
     PLUS_PLUS = "++"
     PLUS_MINUS = "+-"
     PLUS_Q     = "+?"
-    include RubyCurses::ConfigSetup
-    include RubyCurses::Utils
+    include Rbhex::ConfigSetup
+    include Rbhex::Utils
     dsl_accessor :justify     # :right, :left, :center  # added 2008-12-22 19:02
     dsl_accessor :display_length     #  please give this to ensure the we only print this much
     dsl_accessor :height    # if you want a multiline label.

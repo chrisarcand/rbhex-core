@@ -23,8 +23,8 @@
 
 require 'rbhex/core'
 
-include RubyCurses
-module RubyCurses
+include Rbhex
+module Rbhex
   extend self
 
   # This is an attempt at having a container which can contain multiple

@@ -1,6 +1,6 @@
 require 'rbhex/core/system/ncurses'
 
-module RubyCurses
+module Rbhex
   module ColorMap
     # 2010-09-20 12:22 changed colors from string to symbol
     ## private

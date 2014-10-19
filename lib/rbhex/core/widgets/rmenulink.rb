@@ -1,6 +1,6 @@
 require 'rbhex/core/widgets/rlink'
 ##
-module RubyCurses
+module Rbhex
   class MenuLink < Link
     dsl_property :description
 

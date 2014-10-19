@@ -17,7 +17,7 @@ class TestTabbedPane
     @window = VER::Window.root_window
     @form = Form.new @window
     r = 1; c = 30;
-      tp = RubyCurses::TabbedPane.new @form, :height => 12, :width  => 50,
+      tp = Rbhex::TabbedPane.new @form, :height => 12, :width  => 50,
         :row => 13, :col => 10 do
         button_type :ok
       end
@@ -40,7 +40,7 @@ class TestTabbedPane
         butts = [ "Use &HTTP/1.0", "Use &frames", "&Use SSL" ]
         bcodes = %w[ HTTP, FRAMES, SSL ]
         butts.each_with_index do |t, i|
-          item RubyCurses::CheckBox.new nil,
+          item Rbhex::CheckBox.new nil,
             :text => butts[i],
             :variable => $config_hash,
             :name => bcodes[i],
@@ -53,7 +53,7 @@ class TestTabbedPane
         bcodes = %w[ VIM EMACS JED OTHER]
         row = 2
         butts.each_with_index do |name, i|
-          item RubyCurses::CheckBox.new nil ,
+          item Rbhex::CheckBox.new nil ,
             :text => name,
             :variable => $config_hash,
             :name => bcodes[i],
@@ -62,7 +62,7 @@ class TestTabbedPane
         end
       end
       help = "q to quit. <TAB> through tabs, Space or Enter to select Tab."
-      RubyCurses::Label.new @form, {:text => help, :row => 1, :col => 2, :color => :yellow}
+      Rbhex::Label.new @form, {:text => help, :row => 1, :col => 2, :color => :yellow}
       @form.repaint
       @window.wrefresh
       Ncurses::Panel.update_panels

@@ -10,7 +10,7 @@
 # Changes:
 # 2011-12-6 : removed many old, outdated methods.
 #*******************************************************#
-module RubyCurses
+module Rbhex
   module Io
 
     # create a 2 line window at bottom to accept user input
@@ -357,7 +357,7 @@ module RubyCurses
       # and actual proc from the caller using this code.
       def menu_tree mt, pm = self
         mt.each_pair { |ch, code|
-          if code.is_a? RubyCurses::MenuTree
+          if code.is_a? Rbhex::MenuTree
             item = pm.add(ch, code.value, "")
             current = PromptMenu.new @caller, code.value
             item.action = current

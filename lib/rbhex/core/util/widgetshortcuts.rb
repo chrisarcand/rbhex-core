@@ -29,7 +29,7 @@
 # Or is it positioning, such as in a stack. or just a method ?
 require 'rbhex/core/widgets/rlist'
 require 'rbhex/core/widgets/rtextview'
-module RubyCurses
+module Rbhex
   module WidgetShortcuts
     class Ws
       attr_reader :config
@@ -118,7 +118,7 @@ module RubyCurses
   def_widget nil, :ToggleButton, 'toggle'
     def menubar &block
       require 'rbhex/core/widgets/rmenu'
-      RubyCurses::MenuBar.new &block
+      Rbhex::MenuBar.new &block
     end
     def app_header title, config={}, &block
       require 'rbhex/core/widgets/applicationheader'
@@ -188,7 +188,7 @@ module RubyCurses
     # prints pine-like key labels
     def dock labels, config={}, &block
       require 'rbhex/core/widgets/keylabelprinter'
-      klp = RubyCurses::KeyLabelPrinter.new @form, labels, config, &block
+      klp = Rbhex::KeyLabelPrinter.new @form, labels, config, &block
     end
 
     def link config={}, &block

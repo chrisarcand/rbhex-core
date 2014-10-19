@@ -13,8 +13,8 @@
 #
 require 'rbhex/core'
 
-include RubyCurses
-module RubyCurses
+include Rbhex
+module Rbhex
   extend self
 
   # the quick approach would be to use field, and just add a popup.
@@ -25,7 +25,7 @@ module RubyCurses
   #  based on the label. 2014-03-24 - 16:42
 
   class ComboBox < Field
-    include RubyCurses::EventHandler
+    include Rbhex::EventHandler
     dsl_accessor :list_config
 
     attr_accessor :current_index
@@ -75,7 +75,7 @@ module RubyCurses
     # convert given list to datamodel
     def list alist=nil
       return @list if alist.nil?
-      #@list = RubyCurses::ListDataModel.new(alist)
+      #@list = Rbhex::ListDataModel.new(alist)
       @list = alist
     end
     ##
@@ -163,7 +163,7 @@ module RubyCurses
       popcol = @col
       dlength = @display_length
       f = self
-      @popup = RubyCurses::PopupList.new do
+      @popup = Rbhex::PopupList.new do
         row  poprow
         col  popcol
         width dlength

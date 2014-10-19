@@ -21,7 +21,7 @@ require 'pathname'
           1.4.0 or so.
 
 =end
-module RubyCurses
+module Rbhex
 
   # just so the program does not bomb due to a tiny feature
   # I do not raise error on nil array, i create a dummy array
@@ -1778,7 +1778,7 @@ module RubyCurses
   end  # module
 end # module
 #require 'rbhex/core/util/bottomline'
-$tt ||= RubyCurses::Bottomline.new
+$tt ||= Rbhex::Bottomline.new
 $tt.name = "$tt"
 require 'forwardable'
 module Kernel

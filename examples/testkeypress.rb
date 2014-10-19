@@ -9,8 +9,8 @@ require 'logger'
 require 'rbhex/core'
 require 'rbhex/core/widgets/rtextview'
 if $0 == __FILE__
-  include RubyCurses
-  include RubyCurses::Utils
+  include Rbhex
+  include Rbhex::Utils
 
   begin
   # Initialize curses
@@ -43,8 +43,8 @@ if $0 == __FILE__
         end
       help = "q to quit. Check keys. F1..10, C-a..z, Alt a-zA-Z0-9, C-left,rt, Sh-F5..10 .: #{$0}"
       help1 = "Press in quick succession: 1) M-[, w     and (2)  M-[, M-w.        (3)  M-Sh-O, w."
-      RubyCurses::Label.new @form, {'text' => help, "row" => 21, "col" => 2, "color" => "yellow"}
-      RubyCurses::Label.new @form, {'text' => help1, "row" => 22, "col" => 2, "color" => "green"}
+      Rbhex::Label.new @form, {'text' => help, "row" => 21, "col" => 2, "color" => "yellow"}
+      Rbhex::Label.new @form, {'text' => help1, "row" => 22, "col" => 2, "color" => "green"}
 
       @form.repaint
       @window.wrefresh

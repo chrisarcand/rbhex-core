@@ -3,16 +3,16 @@
   * Description: Event used to notify interested parties that an action has happened on component
                  Usually a button press. Nothing more.
   * Author: rkumar (arunachalesha)
-  
+
   --------
-  * Date: 2010-09-12 18:53 
+  * Date: 2010-09-12 18:53
   * License:
     Same as Ruby's License (http://www.ruby-lang.org/LICENSE.txt)
 
 =end
 
 # Event created when state changed (as in ViewPort)
-module RubyCurses
+module Rbhex
   # source - as always is the object whose event has been fired
   # id     - event identifier (seems redundant since we bind events often separately.
   # event  - is :PRESS
@@ -20,7 +20,7 @@ module RubyCurses
   ActionEvent = Struct.new(:source, :event, :action_command) do
     # This should always return the most relevant text associated with this object
     # so the user does not have to go through the source object's documentation.
-    # It should be a user-friendly string 
+    # It should be a user-friendly string
     # @return text associated with source (label of button)
     def text
       source.text

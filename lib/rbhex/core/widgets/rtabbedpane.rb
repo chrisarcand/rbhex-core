@@ -20,7 +20,7 @@
 =end
 require 'rbhex/core'
 ##
-module RubyCurses
+module Rbhex
   class TabbedPane < Widget
     dsl_property :title, :title_attrib
     # what kind of buttons, if this is a window, :ok :ok_camcel :ok_apply_cancel
@@ -566,11 +566,11 @@ module RubyCurses
       widget.row ||= 0
       widget.col ||= 0
       # If we knew it was only widget we could expand it
-      if widget.kind_of?(RubyCurses::Container) #|| widget.respond_to?(:width)
+      if widget.kind_of?(Rbhex::Container) #|| widget.respond_to?(:width)
         widget.width ||= @parent_component.width-3
       end
       # Darn ! this was setting Label to fully height
-      if widget.kind_of?(RubyCurses::Container) #|| widget.respond_to?(:height)
+      if widget.kind_of?(Rbhex::Container) #|| widget.respond_to?(:height)
         widget.height ||= @parent_component.height-3
       end
       # i don't know button_offset as yet

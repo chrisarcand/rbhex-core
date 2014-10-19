@@ -1,4 +1,4 @@
-# File created: 2010-10-29 14:09 
+# File created: 2010-10-29 14:09
 # Author      : rkumar
 #
 # this is a new, simpler version of listselectable
@@ -7,7 +7,7 @@
 # Currently being used by rbasiclistbox (rlist) and now tabularwidget.
 # NOTE: pls define @_header_adjustment to 0 if you don't use it or know what it means.
 # TODO: of course we need to fire events so user can do something.
-module RubyCurses
+module Rbhex
   module NewListSelectable
 
     # @group selection related
@@ -21,7 +21,7 @@ module RubyCurses
     def toggle_row_selection crow=@current_index-@_header_adjustment
       @last_clicked = crow
       @repaint_required = true
-      case @selection_mode 
+      case @selection_mode
       when :multiple
         @widget_scrolled = true # FIXME we need a better name
         if @selected_indices.include? crow
@@ -34,14 +34,14 @@ module RubyCurses
           fire_handler :LIST_SELECTION_EVENT, lse
         end
       else
-        if @selected_index == crow 
+        if @selected_index == crow
           @old_selected_index = @selected_index # 2011-10-15 so we can unhighlight
           @selected_index = nil
           lse = ListSelectionEvent.new(crow, crow, self, :DELETE)
           fire_handler :LIST_SELECTION_EVENT, lse
         else
           @old_selected_index = @selected_index # 2011-10-15 so we can unhighlight
-          @selected_index = crow 
+          @selected_index = crow
           lse = ListSelectionEvent.new(crow, crow, self, :INSERT)
           fire_handler :LIST_SELECTION_EVENT, lse
         end
@@ -58,7 +58,7 @@ module RubyCurses
       @last_clicked ||= crow
       min = [@last_clicked, crow].min
       max = [@last_clicked, crow].max
-      case @selection_mode 
+      case @selection_mode
       when :multiple
         @widget_scrolled = true # FIXME we need a better name
         if @selected_indices.include? crow
@@ -92,7 +92,7 @@ module RubyCurses
       @widget_scrolled = true # FIXME we need a better name
     end
     def is_row_selected crow=@current_index-@_header_adjustment
-      case @selection_mode 
+      case @selection_mode
       when :multiple
         @selected_indices.include? crow
       else
@@ -102,7 +102,7 @@ module RubyCurses
     alias :is_selected? is_row_selected
     # FIXME add adjustment and test
     def goto_next_selection
-      return if selected_rows().length == 0 
+      return if selected_rows().length == 0
       row = selected_rows().sort.find { |i| i > @current_index }
       row ||= @current_index
       @current_index = row
@@ -110,7 +110,7 @@ module RubyCurses
     end
     # FIXME add adjustment and test
     def goto_prev_selection
-      return if selected_rows().length == 0 
+      return if selected_rows().length == 0
       row = selected_rows().sort{|a,b| b <=> a}.find { |i| i < @current_index }
       row ||= @current_index
       @current_index = row
@@ -148,20 +148,20 @@ module RubyCurses
     # this, and the default should be zero.
     def select_all start_row=0 #+@_header_adjustment
       @repaint_required = true
-      # don't select header row - need to make sure this works for all cases. we may 
+      # don't select header row - need to make sure this works for all cases. we may
       # need a variable instead of hardoded value
       add_row_selection_interval start_row, row_count()
     end
     def invert_selection start_row=0 #+@_header_adjustment
       start_row.upto(row_count()){|i| invert_row_selection i }
     end
-     
+
     def invert_row_selection row=@current_index-@_header_adjustment
       @repaint_required = true
       if is_selected? row
         remove_row_selection_interval(row, row)
       else
-        add_row_selection_interval(row, row) 
+        add_row_selection_interval(row, row)
       end
     end
     # selects all rows with the values given, leaving existing selections
@@ -204,7 +204,7 @@ module RubyCurses
     end # mod
     # Applications may call this or just copy and modify
 
-    ## 
+    ##
     # bindings related to selection
     #
     def list_bindings

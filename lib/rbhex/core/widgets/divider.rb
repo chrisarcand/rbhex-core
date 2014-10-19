@@ -1,6 +1,6 @@
 require 'rbhex/core/util/app'
 #include Ncurses # FFI 2011-09-8
-include RubyCurses
+include Rbhex
 
 # TODO : We can consider making it independent of objects, or allow for a margin so it does not write
 # over the object. Then it will be always visible.
@@ -14,7 +14,7 @@ include RubyCurses
 # At a later stage, we will integrate this with lists and tables, so it will happen automatically.
 #
 # @since 1.2.0
-module RubyCurses
+module Rbhex
   class DragEvent < Struct.new(:source, :type); end
 
   # This is a horizontal or vertical bar (like a scrollbar), at present attached to a

@@ -17,7 +17,7 @@
 #  otherwise it should implement *text()* for getting and setting value
 #  and a *CHANGED* event for when user has modified a value and moved out
 # You can externally set $history_key to any unused key, otherwise it is M-h
-module RubyCurses
+module Rbhex
   extend self
   module FieldHistory
     def self.extended(obj)

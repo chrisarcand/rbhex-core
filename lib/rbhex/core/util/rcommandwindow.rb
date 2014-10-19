@@ -12,12 +12,12 @@
 =end
 require 'rbhex/core'
 
-module RubyCurses
+module Rbhex
   ##
   #
   #
   class CommandWindow
-    include RubyCurses::Utils
+    include Rbhex::Utils
     dsl_accessor :box
     dsl_accessor :title
     attr_reader :config

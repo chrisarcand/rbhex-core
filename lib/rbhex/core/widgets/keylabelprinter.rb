@@ -1,7 +1,7 @@
 require 'rbhex/core/widgets/rwidget'
 #include Ncurses # FFI 2011-09-8
-include RubyCurses
-module RubyCurses
+include Rbhex
+module Rbhex
   #
   # This paints labels for various keys at the bottom of the screen, in 2 rows.
   # This is based on alpines last 2 rows. Modes are supported so that the

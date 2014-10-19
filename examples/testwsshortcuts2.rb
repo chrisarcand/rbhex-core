@@ -3,11 +3,11 @@
 require 'rbhex/core'
 require 'rbhex/core/util/widgetshortcuts'
 
-include RubyCurses
-include RubyCurses::Utils
+include Rbhex
+include Rbhex::Utils
 
 class SetupMessagebox
-  include RubyCurses::WidgetShortcuts
+  include Rbhex::WidgetShortcuts
   def initialize config={}, &block
     @window = VER::Window.root_window
     @form = Form.new @window

@@ -13,7 +13,7 @@
 #    - perhaps we can compile the regexp once and reuse
 #
 
-module RubyCurses
+module Rbhex
   class DefaultColorParser
 
     # NOTE: Experimental and minimal

@@ -33,8 +33,8 @@ def help_text
 end
 if $0 == __FILE__
 
-  include RubyCurses
-  include RubyCurses::Utils
+  include Rbhex
+  include Rbhex::Utils
 
   begin
   # Initialize curses
@@ -65,7 +65,7 @@ if $0 == __FILE__
 
       $message = Variable.new
       $message.value = "Message Comes Here"
-      message_label = RubyCurses::Label.new @form, {'text_variable' => $message,
+      message_label = Rbhex::Label.new @form, {'text_variable' => $message,
         "name"=>"message_label","row" => Ncurses.LINES-1, "col" => 1, "display_length" => 60,
         "height" => 2, 'color' => 'cyan'}
 

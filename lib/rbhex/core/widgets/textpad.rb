@@ -26,8 +26,8 @@
 require 'rbhex/core'
 require 'rbhex/core/include/bordertitle'
 
-include RubyCurses
-module RubyCurses
+include Rbhex
+module Rbhex
   extend self
   class TextPad < Widget
     include BorderTitle
@@ -408,7 +408,7 @@ module RubyCurses
     def _convert_formatted
       if @formatted_text
 
-        l = RubyCurses::Utils.parse_formatted_text(@color_parser,
+        l = Rbhex::Utils.parse_formatted_text(@color_parser,
                                                @formatted_text)
 
         text(l)

@@ -18,10 +18,10 @@ require 'logger'
 require 'rbhex/core'
 require 'rbhex/core/util/widgetshortcuts'
 
-include RubyCurses
-include RubyCurses::Utils
+include Rbhex
+include Rbhex::Utils
 include Io
-module RubyCurses
+module Rbhex
    extend self
   ##
   #
@@ -69,7 +69,7 @@ module RubyCurses
   # This is the Application class which does the job of setting up the
   # environment, and closing it at the end.
   class App
-  include RubyCurses::WidgetShortcuts
+  include Rbhex::WidgetShortcuts
     attr_reader :config
     attr_reader :form
     attr_reader :window
@@ -458,7 +458,7 @@ module RubyCurses
       # or
       #@blk = block # for later execution using @blk.call()
       #colorlabel = Label.new @form, {'text' => "Select a color:", "row" => row, "col" => col, "color"=>"cyan", "mnemonic" => 'S'}
-      #var = RubyCurses::Label.new @form, {'text_variable' => $results, "row" => r, "col" => fc}
+      #var = Rbhex::Label.new @form, {'text_variable' => $results, "row" => r, "col" => fc}
 
     def OLDlabel *args
       events = block_event = nil
@@ -945,7 +945,7 @@ module RubyCurses
     # Use either say_with_pause, or put $status_message in command of statusline
     # @deprecated please use {#status_line} instead of a message label
     def create_message_label row=Ncurses.LINES-1
-      @message_label = RubyCurses::Label.new @form, {:text_variable => @message, :name=>"message_label",:row => row, :col => 0, :display_length => Ncurses.COLS,  :height => 1, :color => :white}
+      @message_label = Rbhex::Label.new @form, {:text_variable => @message, :name=>"message_label",:row => row, :col => 0, :display_length => Ncurses.COLS,  :height => 1, :color => :white}
     end
 
     def run &block
@@ -1107,7 +1107,7 @@ module RubyCurses
   end # class
 end # module
 if $0 == __FILE__
-  include RubyCurses
+  include Rbhex
   #app = App.new
   #window = app.window
   #window.printstring 2, 30, "Demo of Listbox - rbhex", $normalcolor, 'reverse'

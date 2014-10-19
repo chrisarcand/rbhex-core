@@ -23,8 +23,8 @@ def help_text
 end
 if $0 == __FILE__
 
-  include RubyCurses
-  include RubyCurses::Utils
+  include Rbhex
+  include Rbhex::Utils
 
   begin
   # Initialize curses

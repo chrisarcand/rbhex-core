@@ -494,7 +494,7 @@ App.new do
         #end
       end
       blank
-      #tv = RubyCurses::ResultsetTextView.new @form, :row => 1,  :col => 1, :width => 50, :height => 16
+      #tv = Rbhex::ResultsetTextView.new @form, :row => 1,  :col => 1, :width => 50, :height => 16
       #tv = resultsettextview :name => 'resultset', :height => 18 , :title => 'DB Browser', :print_footer => true
 
     end

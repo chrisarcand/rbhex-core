@@ -1,4 +1,4 @@
-# 
+#
 # Common stack flow functionality
 # * Name: basestack.rb
 # * Description: Classes that allow user to stack and flow components
@@ -6,7 +6,7 @@
 # * Date: 30.10.11 - 12:57
 # * Last update: 2014-05-02 19:16
 #
-module RubyCurses
+module Rbhex
   module ModStack
     #
     # Base class for stacks and flows.
@@ -30,10 +30,10 @@ module RubyCurses
     # We check the actual variables which config sets in init
     %w[ parent_component width height weight row col orientation margin_top margin_bottom margin_left margin_right].each { |e|
       eval(
-           "def #{e} 
+           "def #{e}
               @config[:#{e}]
             end
-            def #{e}=(val) 
+            def #{e}=(val)
               @config[:#{e}]=val
               instance_variable_set \"@#{e}\", val
               @calc_needed = true
@@ -72,21 +72,21 @@ module RubyCurses
           r   = row + @margin_top
           rem = 0
           ht = height - (@margin_top + @margin_bottom)
-          if @orientation == :bottom 
+          if @orientation == :bottom
             mult = -1
             comps = @components.reverse
             r = row + height - @margin_bottom
-    
+
           else
             mult = 1
             comps = @components
-   
+
           end
-          comps.each { |e| 
+          comps.each { |e|
             # should only happen if expandable FIXME
             e.margin_top ||= 0
             e.margin_bottom ||= 0
-            e.height = 0.01 * e.weight * (ht - (e.margin_top + e.margin_bottom)) 
+            e.height = 0.01 * e.weight * (ht - (e.margin_top + e.margin_bottom))
             hround = e.height.floor
             rem += e.height - hround
             e.height = hround #- (@margin_top + @margin_bottom)
@@ -103,9 +103,9 @@ module RubyCurses
             r += e.margin_top
             if @orientation == :bottom
               r += e.height * mult
-              e.row = r 
+              e.row = r
             else
-              e.row = r 
+              e.row = r
               r += e.height + 0
             end
             e.margin_left ||= 0
@@ -133,7 +133,7 @@ module RubyCurses
             comps = @components
             $log.debug "XXX:  ORIENT2f recalc #{@orientation} "
           end
-          comps.each { |e| 
+          comps.each { |e|
             e.width = e.weight * wd  * 0.01
             wround = e.width.floor
             rem += e.width - wround
@@ -276,11 +276,11 @@ module RubyCurses
     def repaint; @widget.repaint; end
     %w[ form parent parent_component width height row col row_offset col_offset focusable].each { |e|
       eval(
-           "def #{e} 
-              @widget.#{e} 
+           "def #{e}
+              @widget.#{e}
             end
-            def #{e}=(val) 
-              @widget.#{e}=val 
+            def #{e}=(val)
+              @widget.#{e}=val
             end"
           )
     }
@@ -294,7 +294,7 @@ module RubyCurses
     def traverse c, &block
       if c.is_a? BaseStack
         yield c
-        c.components.each { |e| 
+        c.components.each { |e|
           yield e
         }
         c.components.each { |e| traverse(e, &block)  }
@@ -319,7 +319,7 @@ module RubyCurses
       end
       _add s
       @active << s
-      yield_or_eval &block if block_given? 
+      yield_or_eval &block if block_given?
       @active.pop
       # if active is empty then this is where we could calculate
       # percentatges and do recalc, thus making it independent
@@ -365,8 +365,8 @@ module RubyCurses
         $log.debug "XXX: calc COMP COUNT #{sz} "
         # calculate how much weightage has been given by user
         # so we can allocate average to other components
-        components.each { |e| 
-          if e.config[:weight]  
+        components.each { |e|
+          if e.config[:weight]
             wt += e.config[:weight]
             cnt += 1
           end

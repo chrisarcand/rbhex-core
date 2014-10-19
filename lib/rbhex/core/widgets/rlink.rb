@@ -1,6 +1,6 @@
 require 'rbhex/core'
 ##
-module RubyCurses
+module Rbhex
   class Link < Button
     dsl_property :description
 

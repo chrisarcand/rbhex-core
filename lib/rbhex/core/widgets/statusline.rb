@@ -1,6 +1,6 @@
 require 'rbhex/core'
 
-module RubyCurses
+module Rbhex
 
   #
   # A vim-like application status bar that can display time and various other statuses

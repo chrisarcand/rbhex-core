@@ -17,8 +17,8 @@ require 'rbhex/core/include/listscrollable'
 require 'rbhex/core/include/bordertitle'
 require 'forwardable'
 
-include RubyCurses
-module RubyCurses
+include Rbhex
+module Rbhex
   extend self
 
   ##
@@ -476,7 +476,7 @@ module RubyCurses
 
         # I don't want to do this in 20 places and then have to change
         # it and retest. Let me push it to util.
-        l = RubyCurses::Utils.parse_formatted_text(@color_parser,
+        l = Rbhex::Utils.parse_formatted_text(@color_parser,
                                                @formatted_text)
 
         #cp = Chunks::ColorParser.new @color_parser

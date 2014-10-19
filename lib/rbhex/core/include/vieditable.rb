@@ -9,7 +9,7 @@
 
 
 require 'rbhex/core/include/listeditable'
-module RubyCurses
+module Rbhex
   module ViEditable
     include ListEditable
 

@@ -27,7 +27,7 @@ require 'rbhex/core/widgets/rmessagebox'
 #
 def alert text, config={}
 
-  if text.is_a? RubyCurses::Variable
+  if text.is_a? Rbhex::Variable
     text = text.get_value
   end
   _title = config[:title] || "Alert"
@@ -125,7 +125,7 @@ def confirm text, config={}, &block
   title = config['title'] || "Confirm"
   config[:default_button] ||= 0
 
-  mb = RubyCurses::MessageBox.new config  do
+  mb = Rbhex::MessageBox.new config  do
     title title
     message text, &block
     button_type :yes_no
@@ -180,7 +180,7 @@ end
 #private
 def _print_message type, text, aconfig={}, &block  #:nodoc:
   case text
-  when RubyCurses::Variable # added 2011-09-20 incase variable passed
+  when Rbhex::Variable # added 2011-09-20 incase variable passed
     text = text.get_value
   when Exception
     text = text.to_s
@@ -236,7 +236,7 @@ def rb_confirm text, aconfig={}, &block
     default = aconfig[:default]
   end
   case text
-  when RubyCurses::Variable # added 2011-09-20 incase variable passed
+  when Rbhex::Variable # added 2011-09-20 incase variable passed
     text = text.get_value
   when Exception
     text = text.to_s
@@ -398,7 +398,7 @@ def popuplist list, config={}, &block
   #layout(1+height, width+4, row, col)
   layout = { :height => 0+height, :width => 0+width, :top => row, :left => col }
   window = VER::Window.new(layout)
-  form = RubyCurses::Form.new window
+  form = Rbhex::Form.new window
 
   listconfig = config[:listconfig] || {}
   listconfig[:list] = list
@@ -409,7 +409,7 @@ def popuplist list, config={}, &block
   listconfig.delete(:row);
   listconfig.delete(:col);
   # trying to pass populists block to listbox
-  lb = RubyCurses::List.new form, listconfig, &block
+  lb = Rbhex::List.new form, listconfig, &block
   #
   # added next line so caller can configure listbox with
   # events such as ENTER_ROW, LEAVE_ROW or LIST_SELECTION_EVENT or PRESS
@@ -528,7 +528,7 @@ def ORIGdisplay_app_help
   w = FFI::NCurses.COLS - 10
 
     require 'rbhex/core/util/viewer'
-    RubyCurses::Viewer.view(arr, :layout => [2, 4, h, w],:close_key => KEY_F10, :title => "[ Help ]", :print_footer => true) do |t|
+    Rbhex::Viewer.view(arr, :layout => [2, 4, h, w],:close_key => KEY_F10, :title => "[ Help ]", :print_footer => true) do |t|
       # you may configure textview further here.
       #t.suppress_borders true
       #t.color = :black

@@ -21,7 +21,7 @@ require 'rbhex/core/include/bordertitle'
 require 'forwardable'
 
 
-module RubyCurses
+module Rbhex
   extend self
   ##
   ##

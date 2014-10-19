@@ -18,8 +18,8 @@ require 'rbhex/core'
 require 'rbhex/core/widgets/rtabbedpane'
 require 'rbhex/core/widgets/rcontainer'
 
-include RubyCurses
-module RubyCurses
+include Rbhex
+module Rbhex
   class TabbedWindow
     attr_reader :tabbed_pane
     # The given block is passed to the TabbedPane

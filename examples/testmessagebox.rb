@@ -44,7 +44,7 @@ if $0 == __FILE__
       n = @mb.widget(nn)
       $log.debug "XXXX:  #{n.selected_indices}, #{n.name}  "
       when 2
-      @mb = RubyCurses::MessageBox.new do
+      @mb = Rbhex::MessageBox.new do
         title "Color selector"
         message "Select a color"
         #item Label.new :text => "Select a color", :row => 1 , :col => 2
@@ -63,7 +63,7 @@ if $0 == __FILE__
       index = @mb.run
       $log.debug "XXX:  messagebox 2 ret #{index} "
       when 3
-      @mb = RubyCurses::MessageBox.new do
+      @mb = Rbhex::MessageBox.new do
         title "Enter your name"
         #message "Enter your first name. You are not permitted to enter x z or q and must enter a capital first"
         message "Enter your first name. Initcaps "
@@ -79,7 +79,7 @@ if $0 == __FILE__
         add CheckBox.new :text => "Use &HTTP/1.0", :value => true
         add CheckBox.new :text => "Use &passive FTP"
         add Label.new    :text => " Language ", :attr => REVERSE
-        $radio = RubyCurses::Variable.new
+        $radio = Rbhex::Variable.new
         add RadioButton.new :text => "py&thon", :value => "python", :color => :blue, :variable => $radio
         add RadioButton.new :text => "rub&y", :color => :red, :variable => $radio
         button_type :ok
@@ -110,7 +110,7 @@ if $0 == __FILE__
           #l.insert( 0, *flist) if flist
           listb.list flist
         end
-        mb = RubyCurses::MessageBox.new :height => 20, :width => 60 do
+        mb = Rbhex::MessageBox.new :height => 20, :width => 60 do
           title "Sample File Selector"
           add label
           add field

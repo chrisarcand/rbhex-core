@@ -12,7 +12,7 @@
 #
 # Provide a system for us to define a menu for customizing a widget, such that
 # applicatin can also add more menuitems
-module RubyCurses
+module Rbhex
   extend self
   module WidgetMenu
     include Io # added 2011-12-26

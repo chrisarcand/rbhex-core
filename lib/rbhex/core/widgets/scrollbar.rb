@@ -1,6 +1,6 @@
 require 'rbhex/core/util/app'
 #include Ncurses # FFI 2011-09-8
-include RubyCurses
+include Rbhex
 
 # This paints a vertical white bar given row and col, and length. It also calculates and prints
 # a small bar over this based on relaetd objects list.length and current_index.
@@ -16,7 +16,7 @@ include RubyCurses
 # At a later stage, we will integrate this with lists and tables, so it will happen automatically.
 #
 # @since 1.2.0    UNTESTED
-module RubyCurses
+module Rbhex
   class Scrollbar < Widget
     # row to start, same as listbox, required.
     dsl_property :row

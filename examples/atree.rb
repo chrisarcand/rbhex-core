@@ -7,7 +7,7 @@ App.new do
 
       @form.bind_key(FFI::NCurses::KEY_F3) {
         require 'rbhex/core/util/viewer'
-        RubyCurses::Viewer.view("rbc13.log", :close_key => KEY_ENTER, :title => "<Enter> to close")
+        Rbhex::Viewer.view("rbc13.log", :close_key => KEY_ENTER, :title => "<Enter> to close")
       }
 
       ww = FFI::NCurses.COLS-0

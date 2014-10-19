@@ -7,7 +7,7 @@
 #  Last update: 2013-03-25 01:53
 # ----------------------------------------------------------------------------- #
 #
-module RubyCurses
+module Rbhex
   #
   #  bindings for multi-row widgets such as listbox, table, textview
   #
@@ -71,4 +71,4 @@ module RubyCurses
     end # def
   end
 end
-include RubyCurses::ListBindings
+include Rbhex::ListBindings

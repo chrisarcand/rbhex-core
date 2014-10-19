@@ -14,7 +14,7 @@ require 'rbhex/core'
 require 'rbhex/core/widgets/rprogress'
 if $0 == __FILE__
 
-  #include RubyCurses
+  #include Rbhex
 
   begin
   # Initialize curses
